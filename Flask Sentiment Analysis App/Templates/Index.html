@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sentiment Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2">
+</head>
+
+<body>
+  <div class="card">
+    <h1>Sentiment Analyzer</h1>
+    <p class="sub">Enter text → get Sentiment + Polarity + Subjectivity</p>
+
+    <form method="POST">
+      <textarea name="text" placeholder="Type something..." required>{{ text }}</textarea>
+      <button type="submit">Analyze</button>
+    </form>
+
+    <a class="clear" href="/">Clear</a>
+
+    {% if sentiment %}
+    <div class="result">
+      <div class="badge {{ color }}">{{ sentiment }}</div>
+      <p><b>Polarity:</b> {{ polarity }}</p>
+      <p><b>Subjectivity:</b> {{ subjectivity }}</p>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
